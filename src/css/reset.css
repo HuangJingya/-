@@ -1,0 +1,30 @@
+@charset "utf-8";
+/* 清除浏览器的默认间距 */
+*{margin: 0;padding: 0};
+/* 清除b,strong的默认加粗样式 */
+b,strong{font-weight: normal;}
+/* 清除i,em默认倾斜样式 */
+i,em{ font-style: normal;}
+/* 清除a标签的默认样式 */
+a{text-decoration: none;}
+ul li{
+    list-style: none;
+}
+/* 解决图片基线对齐的问题 */
+img{vertical-align: top;}
+/* 清除input点击后的蓝色边框 */
+input{
+    outline: none;
+}
+.clear-fix::after{
+content: " ";
+clear: both;
+height: 0;
+width: 100%;
+overflow: hidden;
+display: block;
+visibility: hidden;
+}
+.clear-fix{
+    zoom: 1;
+}
