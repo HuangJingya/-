@@ -94,7 +94,7 @@
     width: 630px;
     height: 100px;
     float: left;
-    margin-left: 167px;
+    margin-left: 125px;
 }
 .nav-mid li:nth-child(1){
     list-style: none;
@@ -170,6 +170,9 @@
         }
     }
 }
+.nav-mid-box ul #slide{
+    background: yellow;
+}
 .nav-mid-con ul li:nth-child(1) .line{
     border-left:none;
 }
@@ -201,10 +204,12 @@
     display: inline-block;
 }
 
+
 .brand{
     width: 100%;
     height: 30px;
     background: #f5f5f5;
+    position: relative;
     .brand-con{
         width:1380px;
         height: 30px;
@@ -219,6 +224,70 @@
                 color: #cdc5bb;
             }
         }
+    }
+    .banner-left{
+        height: 378px;
+        width:200px;
+        z-index:20;
+        position: absolute;
+        top:0;
+        background: white;
+        left:69px;
+        border: 1px solid orangered;
+        display: none;
+        >ul{
+            width: 260px;
+            display: flex;
+            flex-direction: column;
+            
+            align-items: stretch;   
+            >li{
+                width: 210px;
+                height: 34px;  
+                padding-left:30px;
+                &:nth-child(1){
+                    margin-top: 30px;
+                }
+                >a{
+                    text-decoration: none;
+                    color: #424242; 
+                }
+            }
+            
+           
+        }
+    }
+    .banner-con{
+        width:1240px;
+        height: 378px;
+        position: absolute;
+        z-index: 20;
+        top:0;
+        left:272px;
+        display: none;
+        >ul{
+            height: 378px;
+            display: flex;
+            flex-direction: column;
+            flex-wrap: wrap;
+            background: white;
+            border: 1px solid #ccc;
+            border-left: none;
+            z-index: 20px;
+            >li{
+                width: 200px;
+                display: flex;
+                align-items: center;
+                >div{
+                    display: flex;
+
+                }
+                >p{
+                    display: flex;
+                }
+            }
+        }
+
     }
    
 }

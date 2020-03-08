@@ -1,5 +1,5 @@
 getList()
-
+//分页
 function getList() {
     $.ajax({
         url: '../lib/goodsList2.json',
@@ -31,7 +31,7 @@ function getList() {
         }
     })
 }
-
+//分页渲染
 function bindHtml(list) {
     // console.log(list)
     let str = ''
@@ -58,13 +58,12 @@ function bindHtml(list) {
 
 //顶部导航栏
 getRange()
-
 function getRange() {
     $.ajax({
         url: '../lib/nav_top.json',
         dataType: 'json',
         success: function (res) {
-            console.log(res)
+            // console.log(res)
             let arr=''
             $('.nav-mid>ul')
                 .on({
@@ -86,7 +85,7 @@ function getRange() {
                         <span>${item.list_price}</span>
                     </li> `
                     })
-                    console.log(arr);
+                    // console.log(arr);
                     
                     $('.nav-mid-box>.nav-mid-con>ul').html(arr)
                 })
@@ -99,4 +98,54 @@ function getRange() {
                 })
         }
     })
+}
+
+//边上的导航栏
+
+
+function getBannerList(){
+    $.ajax({
+        url:'../lib/data.json',
+        dataType:'json',
+        success:function(res){
+            console.log(res)
+
+            $('.banner-left>ul')
+            .on({
+                mouseenter:()=>$('.banner-con').stop().show(),
+                mouseleave:()=>$('.banner-con').stop().hide()
+            })
+            .children('li')
+            .on('mouseover',function(){
+                const index=$(this).index()
+                const list=res[index].list
+                let str=''
+
+                list.forEach(item=>{
+                    str+=` <li>
+                    <div><img src="${item.src}"
+                            alt=""></div>
+                    <p>${item.title}</p>
+                </li>`
+                })
+
+                $('.banner-con>ul').html(str)
+            })
+            $('.banner-con')
+            .on({
+                mouseover:function(){$(this).finish().show()},
+                mouseout:function(){$(this).finish().hide()}
+            })
+        }
+    })
+}
+
+getSlide()
+
+function getSlide(){
+ $('#slide').on('mouseenter',function(){
+     $('.banner-left').show(),
+     getBannerList()
+ })
+ $('.banner-left').mouseleave().hide()
 }
